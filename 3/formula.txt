@@ -1,0 +1,29 @@
+Spiral Memory
+
+17  16  15  14  13
+18   5   4   3  12
+19   6   1   2  11
+20   7   8   9  10
+21  22  23  24  25
+
+Bottom-right most cell in a given ring is the square of the next odd number in the progression (starting from 1 on ring 0; so 1, 3, 5, 7, 9 yields 1, 9, 25, 49, 81...).  
+
+Total width at any given odd square corner is equal to that odd number.  Horizontal and vertical distance is the odd number minus one divided by two.  
+
+This is also the largest number in the ring.
+
+Algorithm:
+
+let target = SomeInteger
+let ringMax = Math.ceil(Math.sqrt(target)) ^ 2
+
+let ring = (Math.sqrt(ringMax) - 1) / 2
+let sizeOfSide = ring * 2 + 1;
+
+let previousRingMax = ringMax - (ring * 2 * 4)
+
+let positionOnSide = (target - previousRingMax) % sizeOfSide
+
+let totalDistance = (positionOnSide >= ring ? positionOnSide - ring : ring - positionOnSide) + ring
+
+
