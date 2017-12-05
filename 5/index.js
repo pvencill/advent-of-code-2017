@@ -3,7 +3,6 @@ module.exports = function navigateJumps(interruptList) {
   let position = 0;
   let jumps = 0;
 
-  // infinite loop until we get an answer... 
   while(position < interrupts.length) {
     const interrupt = interrupts[position];
     interrupts[position] = interrupts[position] + 1;
