@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const checksum = require('./index');
+const checksum = require('./index').checksum;
 
 describe('Given the sample data', () => {
 	const data = "5 1 9 5\n7 5 3\n2 4 6 8"
@@ -15,5 +15,16 @@ describe('Given the multidigit sample data', () => {
 	it('should evaluate the checksum correctly', () => {
 		const results = checksum(data);
 		expect(results).to.equal(correctSum);
+	});
+});
+
+describe('Given the sample data', () => {
+	const data = '5 9 2 8\n9 4 7 3\n3 8 6 5';
+	describe('When the correct sum is based on the evenly divisible pairs', () => {
+		const answer = 9;
+
+		it('Should yield the correct sum', () => {
+
+		});
 	});
 });
