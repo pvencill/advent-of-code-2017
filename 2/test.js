@@ -1,5 +1,6 @@
 const expect = require('chai').expect;
 const checksum = require('./index').checksum;
+const pairs = require('./index').checksumByPairs;
 
 describe('Given the sample data', () => {
 	const data = "5 1 9 5\n7 5 3\n2 4 6 8"
@@ -24,7 +25,7 @@ describe('Given the sample data', () => {
 		const answer = 9;
 
 		it('Should yield the correct sum', () => {
-
+			expect(pairs(data)).to.equal(answer);
 		});
 	});
 });
