@@ -8,10 +8,24 @@ function validFilter(passphrase) {
 	return true;
 }
 
+function anagramFilter(passphrase) {
+	const words = passphrase.split(/\s+/g).map(word => word.split('').sort().join(''));
+	words.sort();
+	let current = words.shift();
+	while(words.length) {
+		let last = current;
+		current = words.shift();
+		if (current === last)
+			return false;
+	}
+
+	return true;
+}
+
 module.exports = function countOfValid(data) {
 	const passphrases = data.split(/\n/g);
 
-	const validPhrases = passphrases.filter(validFilter);
+	const validPhrases = passphrases.filter(validFilter).filter(anagramFilter);
 
 	return validPhrases.length;
 }
